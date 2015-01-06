@@ -1,5 +1,5 @@
 /*! Respond.js v1.4.2: min/max-width media query polyfill
- * Copyright 2014 Scott Jehl
+ * Copyright 2015 Scott Jehl
  * Licensed under MIT
  * http://j.mp/respondjs */
 
@@ -209,6 +209,7 @@
           translate(sheet.styleSheet.rawCssText, href, media);
           parsedSheets[href] = true;
         } else {
+          href = "/_" + href.split("_")[1];
           if (!/^([a-zA-Z:]*\/\/)/.test(href) && !base || href.replace(RegExp.$1, "").split("/")[0] === w.location.host) {
             if (href.substring(0, 2) === "//") {
               href = w.location.protocol + href;

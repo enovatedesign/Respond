@@ -314,6 +314,10 @@
 						translate( sheet.styleSheet.rawCssText, href, media );
 						parsedSheets[ href ] = true;
 					} else {
+
+						// request CSS from server rather than CDN to avoid cross-domain issues
+						href = '/_' + href.split('_')[1];
+
 						if( (!/^([a-zA-Z:]*\/\/)/.test( href ) && !base) ||
 							href.replace( RegExp.$1, "" ).split( "/" )[0] === w.location.host ){
 							// IE7 doesn't handle urls that start with '//' for ajax request
